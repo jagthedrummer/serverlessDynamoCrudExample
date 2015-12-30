@@ -1,7 +1,7 @@
 var AWS = require('aws-sdk');
 var dynamoconfig = {};
 
-if(process.env.SERVERLESS_STAGE === 'development'){
+if(process.env.SERVERLESS_STAGE === 'development' && process.env.SERVERLESS_DATA_LOCATION === 'localhost'){
   dynamoconfig = {
     endpoint: "http://localhost:8000",
     region: "someregion",

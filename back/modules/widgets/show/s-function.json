@@ -15,9 +15,11 @@
           "method": "GET",
           "authorizationType": "none",
           "apiKeyRequired": false,
-          "requestParameters": {},
+          "requestParameters": {
+            "integration.request.path.id": "method.request.path.id"
+          },
           "requestTemplates": {
-            "application/json": ""
+            "application/json": "{\"id\":\"$input.params('id')\"}"
           },
           "responses": {
             "400": {

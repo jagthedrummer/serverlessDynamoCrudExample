@@ -11,12 +11,15 @@
       {
         "region": "us-east-1",
         "iamRoleArnLambda": "arn:aws:iam::852612687751:role/serverlessDynamoCrudExample-developm-IamRoleLambda-1T7T2GJ7FKQXZ",
-        "regionBucket": "serverless.useast1.serverless-dynamo-crud-example.octolabs.com"
+        "regionBucket": "serverless.useast1.serverless-dynamo-crud-example.octolabs.com",
+        "restApiId": "azq0yhb3i0"
       }
     ]
   },
   "custom": {},
-  "plugins": [{
+  "plugins": [
+    {
       "path": "serverless-serve"
-   }]
+    }
+  ]
 }
