@@ -2,10 +2,21 @@
  * Lib
  */
 
-module.exports.respond = function(event, cb) {
+module.exports.index = function(event, cb) {
 
   var response = {
-    message: "Your Serverless function ran successfully!"
+    message: "Index ran successfully!",
+    event: event
+  };
+
+  return cb(null, response);
+};
+
+module.exports.show = function(event, cb) {
+
+  var response = {
+    message: "Show ran successfully!",
+    event: event
   };
 
   return cb(null, response);

@@ -13,10 +13,13 @@ var ServerlessHelpers = require('serverless-helpers-js').loadEnv();
 // Require Logic
 var lib = require('../lib');
 
-// Lambda Handler
-module.exports.handler = function(event, context) {
+// Lambda Handlers
+var operations = ['index','create','show','update','delete'];
 
-  lib.respond(event, function(error, response) {
-    return context.done(error, response);
-  });
-};
+operations.forEach(function(operation){
+  module.exports[operation+'Handler'] = function(event, context) {
+    lib[operation](event, function(error, response) {
+      return context.done(error, response);
+    });
+  }
+});
