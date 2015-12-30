@@ -12,6 +12,7 @@
   "keywords": [],
   "devDependencies": {},
   "dependencies": {
+    "aws-sdk": "^2.2.26",
     "serverless-helpers-js": "~0.0.3"
   }
 }

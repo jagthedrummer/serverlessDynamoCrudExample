@@ -68,6 +68,38 @@
     }
   },
   "Resources": {
+    "myDynamoDBTable": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "id",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": "1",
+          "WriteCapacityUnits": "1"
+        },
+        "TableName": {
+          "Fn::Join": [
+            "-",
+            [
+              "widgets",
+              {
+                "Ref": "DataModelStage"
+              }
+            ]
+          ]
+        }
+      }
+    },
     "IamRoleLambda": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -127,6 +159,15 @@
         "PolicyDocument": {
           "Version": "2012-10-17",
           "Statement": [
+            {
+              "Effect": "Allow",
+              "Resource": "*",
+              "Action": [
+                "dynamodb:*Item",
+                "dynamodb:Query",
+                "dynamodb:Scan"
+              ]
+            },
             {
               "Effect": "Allow",
               "Action": [
