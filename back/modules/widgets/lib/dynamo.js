@@ -11,6 +11,7 @@ if(process.env.SERVERLESS_STAGE === 'development'){
 }
 
 var dynamodb = new AWS.DynamoDB(dynamoconfig);
+module.exports.raw = dynamodb;
 module.exports.doc = new AWS.DynamoDB.DocumentClient({service:dynamodb});
 module.exports.tableName = "widgets-" + process.env.SERVERLESS_STAGE;
 
