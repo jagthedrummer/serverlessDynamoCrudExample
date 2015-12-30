@@ -13,6 +13,7 @@
   "devDependencies": {},
   "dependencies": {
     "aws-sdk": "^2.2.26",
-    "serverless-helpers-js": "~0.0.3"
+    "serverless-helpers-js": "~0.0.3",
+    "uuid": "^2.0.1"
   }
 }
